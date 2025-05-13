@@ -15,7 +15,7 @@ import Produtos    from './pages/Produtos'
 import Entregas    from './pages/Entregas'
 import Financeiro  from './pages/Financeiro'
 import Relatorios  from './pages/Relatorios'
-import DbViewer    from './pages/DbfViewer'
+import DbViewer    from './components/DbfViewer'
 
 export default function App() {
   const token = localStorage.getItem('token') // seu JWT

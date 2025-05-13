@@ -1,6 +1,5 @@
-// src/components/Sidebar.jsx
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Sidebar() {
   const links = [
@@ -12,16 +11,13 @@ export default function Sidebar() {
     { to: '/entregas',     label: 'Entregas' },
     { to: '/financeiro',   label: 'Financeiro' },
     { to: '/relatorios',   label: 'Relatórios' },
-    // DBF viewer — adiciona quantos arquivos quiser aqui:
     { to: '/dbf-viewer/clientes', label: 'Ver clientes.dbf' },
-    { to: '/dbf-viewer/produtos', label: 'Ver produtos.dbf' },
-    // ex.: { to: '/dbf-viewer/pedidos', label: 'Ver pedidos.dbf' },
-  ];
+    { to: '/dbf-viewer/produtos', label: 'Ver produtos.dbf' }
+  ]
 
   function handleLogout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-    window.location.href = '/login';
+    localStorage.removeItem('token')
+    window.location.href = '/login'
   }
 
   return (
@@ -29,23 +25,21 @@ export default function Sidebar() {
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
         Sete Irmãos
       </h1>
-
       <nav className="flex-1 flex flex-col space-y-2">
-        {links.map(link => (
+        {links.map(({ to, label }) => (
           <NavLink
-            key={link.to}
-            to={link.to}
+            key={to}
+            to={to}
             className={({ isActive }) =>
               isActive
                 ? 'block px-3 py-2 rounded bg-blue-100 font-semibold text-blue-600'
                 : 'block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600'
             }
           >
-            {link.label}
+            {label}
           </NavLink>
         ))}
       </nav>
-
       <button
         onClick={handleLogout}
         className="mt-auto px-3 py-2 text-sm text-red-600 hover:text-red-800"
@@ -53,5 +47,5 @@ export default function Sidebar() {
         Sair
       </button>
     </aside>
-  );
+)
 }
